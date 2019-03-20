@@ -8,7 +8,8 @@ class Main extends Controller{
     }
 
     function welcome(){
-        echo "<p>Welcome to my page</p>";
+        $this->view->mensaje = "<p>Welcome to my page</p>";
+        $this->view->render('main/welcome');
     }
 
     function index(){

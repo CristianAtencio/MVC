@@ -17,6 +17,7 @@ class App{
             $archivocontroller = 'controllers/main.php';
             require_once $archivocontroller;
             $controller = new Main();
+            $controller->loadModel('main');
             $controller->index();
             return false;
         }
@@ -29,13 +30,29 @@ class App{
 
             require_once $archivocontroller;
             $controller = new $url[0];
+            $controller->loadModel($url[0]);
+
 
             //Know if theres action for the controller or pass the index action
             if (isset($url[1])) {
 
                 //Validate the exists action or pass to pages not found
                 if (method_exists($controller,$url[1])) {
-                    $controller->{$url[1]}();
+
+                    //Contains the quantity elements of the array URL (Controller,Methods or Action and Parameters);
+                    $nparam = sizeof($url);
+
+                    if ($nparam > 2) {
+                        $param = [];
+                        for ($i=2; $i < $nparam ; $i++) { 
+                            array_push($param,$url[$i]);
+                        }
+
+                        $controller->{$url[1]}($param);
+                    }else{
+                        
+                        $controller->{$url[1]}();
+                    }
 
                 }else{
 
