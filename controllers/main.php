@@ -4,6 +4,7 @@ class Main extends Controller{
 
     function __construct(){
         parent::__construct();
+        $this->view->user = "";
         // echo "<p>New Controller Main</p>";
     }
 
@@ -13,6 +14,7 @@ class Main extends Controller{
     }
 
     function index(){
+        $this->view->user = $_SESSION['name'];
         $this->view->render('main/index');
         //echo "<p>Hi,Bro</p>";
     }

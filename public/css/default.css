@@ -1,6 +1,5 @@
 *{
     padding: 0;
-    margin: 0;
 }
 
 body{
@@ -11,6 +10,10 @@ body{
 #header{
     background: black;
     padding: 10px;
+}
+
+#header ul{
+    margin: auto;
 }
 
 #header ul li{
@@ -31,9 +34,26 @@ body{
 }
 
 #main{
-    padding: 20px 0;
+    padding: 50px 0;
     width: 500px;
     margin: 0 auto;
+}
+
+/* #menuAccount{
+    background: navy;
+    padding: 10px;
+}
+
+#menuAccount ul li{
+    display: table;
+} */
+
+#menuAccount a{
+    margin-top: -10px;
+}
+
+#menu{
+    margin-top: -10px;
 }
 
 .center{
@@ -42,4 +62,8 @@ body{
 
 .error{
     color: #ac2323;
+}
+
+.account{
+    float: right;
 }

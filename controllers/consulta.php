@@ -6,6 +6,9 @@ class Consulta extends Controller{
         parent::__construct();
         $this->view->alumnos = [];
         $this->view->mensaje = "";
+        $this->view->user = "";
+        
+        $this->view->user = $_SESSION['name'];
     }
 
     function index(){
@@ -20,14 +23,12 @@ class Consulta extends Controller{
         $alumno =$this->model->getById($idAlumno);
         $this->view->alumno = $alumno;
 
-        session_start();
         $_SESSION['id_viewAlumno'] = $alumno->matricula;
         
         $this->view->render('consulta/detalle');
     }
 
     function updateAlumno(){
-        session_start();
         $matricula = $_SESSION['id_viewAlumno'];
 
         $nombre = $_POST['nombre'];

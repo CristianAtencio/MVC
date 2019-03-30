@@ -1,9 +1,9 @@
 <?php 
 
-    define('URL','http://localhost/MVC/');
+    define('URL','http://practicas.test/');
 
     define('HOST','localhost');
-    define('DB','mvc');
+    define('DB','ingresos');
     define('USER','root');
     define('PASSWORD','');
     define('CHARSET','utf8mb4');

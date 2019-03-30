@@ -4,6 +4,9 @@ class Nuevo extends Controller{
 
     function __construct(){
         parent::__construct();
+        $this->view->user = "";
+
+        $this->view->user = $_SESSION['name'];
     }
 
     function index(){

@@ -12,12 +12,38 @@ class App{
         $url = explode('/',$url);
 
         // var_dump($url);
+        session_start();
+
+        if(!isset($_SESSION['time'])){
+
+            $_SESSION['time'] = time();
+        }
+        else if ((time() - $_SESSION['time']) > 120) {
+            
+            $archivocontroller = 'controllers/login.php';
+            require_once $archivocontroller;
+            $controller = new Login();
+            $controller->loadModel('login');
+            $controller->index();
+            return false;
+        }
+
+        $_SESSION['time'] = time();
 
         if (empty($url[0])) {
-            $archivocontroller = 'controllers/main.php';
-            require_once $archivocontroller;
-            $controller = new Main();
-            $controller->loadModel('main');
+            if (isset($_SESSION['user'])) {
+                
+                $archivocontroller = 'controllers/main.php';
+                require_once $archivocontroller;
+                $controller = new Main();
+                $controller->loadModel('main');
+            }else{
+                
+                $archivocontroller = 'controllers/login.php';
+                require_once $archivocontroller;
+                $controller = new Login();
+                $controller->loadModel('login');
+            }
             $controller->index();
             return false;
         }
