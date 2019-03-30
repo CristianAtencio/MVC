@@ -56,11 +56,14 @@ class Consulta extends Controller{
         $matricula = $param[0];
 
         if ($this->model->delete($matricula)) {
-            $this->view->mensaje = "Delete Successful";
-        }else{
-            $this->view->mensaje = "Delete Failed";
-        }
-        $this->index();
+        //     $this->view->mensaje = "Delete Successful";
+            $mensaje = "Delete Successful";
+         }else{
+        //     $this->view->mensaje = "Delete Failed";
+            $mensaje = "Delete Failed";
+         }
+        // $this->index();
+        echo $mensaje;
     }
 }
 ?>

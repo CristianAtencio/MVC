@@ -13,7 +13,7 @@
         <h1 class="center">This is the Consult Page</h1>
         
         <span><?php echo $this->mensaje; ?></span>
-        
+        <span id="response" class="center"></span>
         <table class="table">
             <thead class="thead-light">
                 <tr>
@@ -23,19 +23,19 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="tbody-alumnos">
                 <?php 
                     include_once 'models/alumno.php';
                     foreach ($this->alumnos as $row) {
                         $alumno = new Alumno();
                         $alumno = $row;
                 ?>
-                <tr>
+                <tr id="fila-<?php echo $alumno->matricula; ?>">
                     <td><?php echo $alumno->matricula; ?></td>
                     <td><?php echo $alumno->nombre; ?></td>
                     <td><?php echo $alumno->apellido; ?></td>
                     <td><a href="<?php echo constant('URL') . 'consulta/viewAlumno/' . $alumno->matricula; ?>" class="btn btn-success">Edit</a> | 
-                    <a href="<?php echo constant('URL') . 'consulta/deleteAlumno/' . $alumno->matricula; ?>" class="btn btn-danger">Delete</a></td>
+                    <button class="bdelete btn btn-danger" data-matricula=<?php echo $alumno->matricula; ?>>Delete</button></td>
                 </tr>
                 <?php 
                     }
@@ -45,5 +45,6 @@
     </div>
     
     <?php require 'views/footer.php'; ?>
+    <script src="<?php echo constant('URL'); ?>public/js/main.js"></script>
 </body>
 </html>
