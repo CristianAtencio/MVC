@@ -1,6 +1,6 @@
 <?php
 //This is a Mein controller or index
-class Main extends Controller{
+class Home extends Controller{
 
     function __construct(){
         parent::__construct();
@@ -10,12 +10,12 @@ class Main extends Controller{
 
     function welcome(){
         $this->view->mensaje = "<p>Welcome to my page</p>";
-        $this->view->render('main/welcome');
+        $this->view->render('home/welcome');
     }
 
     function index(){
         $this->view->user = $_SESSION['name'];
-        $this->view->render('main/index');
+        $this->view->render('home/index');
         //echo "<p>Hi,Bro</p>";
     }
 

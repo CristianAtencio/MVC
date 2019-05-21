@@ -1,6 +1,6 @@
 <?php 
 
-class Consulta extends Controller{
+class Search extends Controller{
 
     function __construct(){
         parent::__construct();
@@ -14,7 +14,7 @@ class Consulta extends Controller{
     function index(){
         $alumnos = $this->model->getAlumnos();
         $this->view->alumnos = $alumnos;
-        $this->view->render('consulta/index');
+        $this->view->render('search/index');
     }
 
     function viewAlumno( $param = null){
@@ -25,7 +25,7 @@ class Consulta extends Controller{
 
         $_SESSION['id_viewAlumno'] = $alumno->matricula;
         
-        $this->view->render('consulta/detalle');
+        $this->view->render('search/detalle');
     }
 
     function updateAlumno(){
@@ -48,7 +48,7 @@ class Consulta extends Controller{
 
             $this->view->alumnos = $alumno;
             $this->view->mensaje = "Update Failed";
-            $this->view->render('consulta/detalle');
+            $this->view->render('search/detalle');
         }
     }
 

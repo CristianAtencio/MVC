@@ -14,11 +14,24 @@ class App{
         // var_dump($url);
         session_start();
 
+        if (isset($_SESSION['user'])) {
+            $user = $_SESSION['user'];
+        }else{
+            $archivocontroller = 'controllers/login.php';
+            require_once $archivocontroller;
+            $controller = new Login();
+            $controller->loadModel('login');
+            $controller->index();
+            return false;
+        }
+
+
         if(!isset($_SESSION['time'])){
 
             $_SESSION['time'] = time();
         }
         else if ((time() - $_SESSION['time']) > 120) {
+            
             $archivocontroller = 'controllers/login.php';
             require_once $archivocontroller;
             $controller = new Login();
@@ -32,10 +45,10 @@ class App{
         if (empty($url[0])) {
             if (isset($_SESSION['user'])) {
                 
-                $archivocontroller = 'controllers/main.php';
+                $archivocontroller = 'controllers/home.php';
                 require_once $archivocontroller;
-                $controller = new Main();
-                $controller->loadModel('main');
+                $controller = new Home();
+                $controller->loadModel('home');
             }else{
                 
                 $archivocontroller = 'controllers/login.php';

@@ -29,7 +29,7 @@ class Login extends Controller{
             $_SESSION['name'] = $login->firstName . " " . $login->lastName;
             $_SESSION['user'] = $login->user;
             $_SESSION['role'] = $login->role;
-            header('Location: ' . constant('URL') . 'main');
+            header('Location: ' . constant('URL') . 'home');
         }else{
             $this->view->mensaje = "User or Password is incorrect.";
             $this->view->render('login/index');

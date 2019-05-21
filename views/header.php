@@ -12,9 +12,9 @@
     <div id="header">
         <ul >
             <li><a href="<?php echo constant('URL'); ?>"><img src="<?php echo constant('URL'); ?>assets/img/Logo Giravan.jpg" alt="" width="100"></a></li>
-            <li><a href="<?php echo constant('URL'); ?>main">Home</a></li>
-            <li><a href="<?php echo constant('URL'); ?>nuevo">New</a></li>
-            <li><a href="<?php echo constant('URL'); ?>consulta">Consult</a></li>
+            <li><a href="<?php echo constant('URL'); ?>home">Inicio</a></li>
+            <li><a href="<?php echo constant('URL'); ?>input">Ingresos</a></li>
+            <li><a href="<?php echo constant('URL'); ?>search">Consultar</a></li>
             <li><a href="<?php echo constant('URL'); ?>ayuda">Help</a></li>
                 <!-- <ul class="menu">
                     <li><a href="#">Administrator</a></li>
