@@ -50,7 +50,7 @@ class Search extends Controller{
             $this->view->mensaje = "Update Failed";
             $this->view->render('search/detalle');
         }
-    }
+    } 
 
     function deleteAlumno( $param = null){
         $matricula = $param[0];

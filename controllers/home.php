@@ -4,6 +4,7 @@ class Home extends Controller{
 
     function __construct(){
         parent::__construct();
+        $this->view->items = [];
         $this->view->user = "";
         // echo "<p>New Controller Main</p>";
     }
@@ -15,6 +16,8 @@ class Home extends Controller{
 
     function index(){
         $this->view->user = $_SESSION['name'];
+        $items = $this->model->getItems();
+        $this->view->items = $items;
         $this->view->render('home/index');
         //echo "<p>Hi,Bro</p>";
     }

@@ -9,10 +9,37 @@
 <body>
     <?php require 'views/header.php'; ?>
 
-    <div id="main">
-        <h1 class="center" >This is the main view</h1>
-    </div>
-    
+    <div class="row d-flex justify-content-center">
+        <table class="table col-10">
+            <thead class="thead-light">
+                <tr>
+                <th scope="col" width="15%">#</th>
+                <th scope="col">Equipo</th>
+                <th scope="col">Causa</th>
+                <th scope="col">Motivos</th>
+                <th scope="col">Observaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php 
+                    include_once 'models/item.php';
+                    foreach ($this->items as $row) {
+                        $item = new Item();
+                        $item = $row;
+                ?>
+                <tr id="<?php echo $item->item; ?>">
+                <th scope="row"><img src="<?php echo constant('URL'); ?>assets/img/item.svg" width="100%" height="auto" alt="Equipo ingresado"/></th>
+                <td><?php echo $item->item; ?></td>
+                <td><?php echo $item->cause; ?></td>
+                <td><?php echo $item->argument; ?></td>
+                <td><?php echo $item->observation; ?></td>
+                </tr>
+                <?php 
+                    }
+                 ?> 
+            </tbody>
+        </table>
+    </div>    
     <?php require 'views/footer.php'; ?>
 </body>
 </html>

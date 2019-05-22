@@ -6,6 +6,9 @@ class Item{
     public $cause;
     public $argument;
     public $observation;
+    public $datecreation;
+    public $process;
+    public $dateupdate;
     public $idCustumer;
 }
 ?>

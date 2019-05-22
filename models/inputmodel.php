@@ -63,8 +63,8 @@ class InputModel extends Model{
 
     public function insertItem($item, $idcliente){
 
-        $query = $this->db->connect()->prepare('INSERT INTO ITEM ( Item, Cause, Argument, Observation, IdCustumer)
-                                        VALUES(:equipo, :causa, :argumento, :observacion, :idcliente)');
+        $query = $this->db->connect()->prepare('INSERT INTO ITEM ( Item, Cause, Argument, Observation, DateCreation, Process, IdCustumer)
+                                        VALUES(:equipo, :causa, :argumento, :observacion, :datecreacion, :proceso, :idcliente)');
         
         try {
 
@@ -73,6 +73,8 @@ class InputModel extends Model{
                 'causa' => $item['causa'],
                 'argumento' => $item['argumento'],
                 'observacion' => $item['observacion'],
+                'datecreacion' => date("F j, Y, g:i a"),
+                'proceso' => 1,
                 'idcliente' => $idcliente
             ]);
             

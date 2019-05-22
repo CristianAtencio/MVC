@@ -8,7 +8,7 @@ buttons.forEach(boton => {
          
         if (confirm) {
             //Solicitud AJAX
-            httpRequest("http://localhost/MVC/consulta/deleteAlumno/" + matricula, function(){
+            httpRequest("http://localhost/MVC/search/deleteItem/" + matricula, function(){
                 // console.log(this.responseText);
                 document.querySelector('#response').innerHTML = this.responseText;
 
