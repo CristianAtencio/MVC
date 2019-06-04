@@ -1,6 +1,6 @@
 <?php 
 
-    define('URL','http://proyecto.test/');
+    define('URL','http://practicas.test/');
 
     define('HOST','localhost');
     define('DB','ingresos');

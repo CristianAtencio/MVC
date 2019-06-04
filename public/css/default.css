@@ -39,6 +39,18 @@ body{
     margin: 0 auto;
 }
 
+#items{
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+#user{
+    padding: 10px 0;
+    margin: 0 auto;
+}
+
+
+
 /* #menuAccount{
     background: navy;
     padding: 10px;

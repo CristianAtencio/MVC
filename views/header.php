@@ -13,7 +13,9 @@
         <ul >
             <li><a href="<?php echo constant('URL'); ?>"><img src="<?php echo constant('URL'); ?>assets/img/Logo Giravan.jpg" alt="" width="100"></a></li>
             <li><a href="<?php echo constant('URL'); ?>home">Inicio</a></li>
+            <?php if (strcmp($this->role, "Seller") !== 0) { ?>
             <li><a href="<?php echo constant('URL'); ?>input">Ingresos</a></li>
+            <?php }?>
             <li><a href="<?php echo constant('URL'); ?>search">Consultar</a></li>
             <li><a href="<?php echo constant('URL'); ?>ayuda">Help</a></li>
                 <!-- <ul class="menu">
@@ -29,8 +31,7 @@
                 <?php echo $this->user;?>
               </a>
               <div id="menu" class="dropdown-menu dropdown-menu-right bg-info text-white" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item text-white" href="#">Administrator</a>
-                <a class="dropdown-item text-white" href="#">Admin User</a>
+                <a class="dropdown-item text-white" href="<?php echo constant('URL'); ?>admin/index">Administrator</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-white" href="<?php echo constant('URL'); ?>login">Log out</a>
               </div>

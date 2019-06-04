@@ -30,7 +30,7 @@ class App{
 
             $_SESSION['time'] = time();
         }
-        else if ((time() - $_SESSION['time']) > 120) {
+        else if ((time() - $_SESSION['time']) > 1200) {
             
             $archivocontroller = 'controllers/login.php';
             require_once $archivocontroller;

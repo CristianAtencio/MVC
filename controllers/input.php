@@ -13,19 +13,6 @@ class Input extends Controller{
         $this->view->render('input/index');
     }
 
-    function registrarAlumno(){
-        
-        $matricula = $_POST['matricula'];
-        $nombre = $_POST['nombre'];
-        $apellido = $_POST['apellido'];
-        
-        if($this->model->insert(['matricula' => $matricula, 'nombre' => $nombre, 'apellido' => $apellido]))
-        {
-            echo "Create Successful";
-        }else{
-            echo "Create Failed";
-        }
-    }
 
     function ingresarItem(){
 
