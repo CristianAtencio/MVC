@@ -1,5 +1,7 @@
 <?php
 
+include_once 'models/item.php';
+
 class InputModel extends Model{
 
     public function __construct(){
@@ -80,6 +82,51 @@ class InputModel extends Model{
             
         } catch (PDOException $e) {
             print_r('Error Save: ' . $e->getMessage());
+            return false;
+        }
+
+    }
+
+    public function getItem($idItem){
+
+        $query = $this->db->connect()->prepare('SELECT * FROM ITEM WHERE ID = :id');
+        try {
+            $query->execute(['id' => $idItem]);
+
+            $item = new Item();
+
+            while ($row = $query->fetch()) {
+                $item->id           = $row['Id'];
+                $item->item         = $row['Item'];
+                $item->cause        = $row['Cause'];
+                $item->argument     = $row['Argument'];
+                $item->observation  = $row['Observation'];
+            }
+
+            return $item;
+
+        }catch (PDOException $e) {
+            print_r('Error Save: ' . $e->getMessage());
+            return null;
+        }
+    }
+
+    public function updateRevision($item){
+
+        $query = $this->db->connect()->prepare('UPDATE ITEM SET USERREVISION = :userRevision, PROCESS = :process, DATEUPDATE = :dateUpdate WHERE  ID = :idItem');
+
+        try {
+            $query->execute([
+                'idItem'       => $item['idItem'],
+                'userRevision' => $item['userRevision'],
+                'process' => 2,
+                'dateUpdate' => date("F j, Y, g:i a")
+            ]);
+
+            return true;
+
+        } catch (PDOException $e) {
+            print_r('Error update: ' . $e->getMessage());
             return false;
         }
 

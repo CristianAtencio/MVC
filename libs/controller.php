@@ -5,7 +5,7 @@ class Controller{
     function __construct(){
         // echo "<p>Base Controller</p>";
         $this->view = new View();
-        $this->view->role = $_SESSION['role'];
+        $this->view->role = isset($_SESSION['role']) ? $_SESSION['role'] : " ";
     }
 
     function loadModel($model){

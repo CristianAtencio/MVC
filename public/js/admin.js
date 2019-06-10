@@ -6,7 +6,7 @@ $(document).ready(function() {
 
    user.keyup(function() {
        var input = user.val();
-        httpRequest("http://practicas.test/admin/validateUser/" + input, function(){
+        httpRequest("http://proyecto.test/admin/validateUser/" + input, function(){
             var response = this.responseText;
 
             if (response !== "") {
@@ -20,7 +20,7 @@ $(document).ready(function() {
 
    email.keyup(function() {
        var input = email.val();
-        httpRequest("http://practicas.test/admin/validateEmail/" + input, function() {
+        httpRequest("http://proyecto.test/admin/validateEmail/" + input, function() {
             var response = this.responseText;
 
             if (response !== "") {

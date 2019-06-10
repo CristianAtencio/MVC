@@ -18,6 +18,7 @@ class HomeModel extends Model{
 
             while ($row = $query->fetch()) {
                 $item = new Item();
+                $item->id           = $row['Id'];
                 $item->item         = $row['Item'];
                 $item->cause        = $row['Cause'];
                 $item->argument     = $row['Argument'];

@@ -23,7 +23,7 @@ $(document).ready(function() {
 
     $.ajax(
         {
-            url: "http://practicas.test/role/role",
+            url: "http://proyecto.test/role/role",
             cache: false
         })
         .done(function(result)

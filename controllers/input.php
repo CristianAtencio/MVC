@@ -39,5 +39,28 @@ class Input extends Controller{
             
         }
     }
+
+    function item($param = null){
+
+        $role   = $_SESSION['role'];
+        $idItem = $param[0];
+
+        $item = $this->model->getItem($idItem);
+        $this->view->item = $item;
+        $this->view->render('input/item');
+
+    }
+
+    function revisionItem($param = null){
+        $idItem = $param[0];
+        $user = $_SESSION['name'];
+
+        if ($this->model->updateRevision([
+            'idItem' => $idItem,
+            'userRevision' => $user])) {
+
+            header('Location: ' . constant('URL') . 'home');  
+        }
+    }
 }
 ?>

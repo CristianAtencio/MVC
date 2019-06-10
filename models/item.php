@@ -2,6 +2,7 @@
 
 class Item{
 
+    public $id;
     public $item;
     public $cause;
     public $argument;

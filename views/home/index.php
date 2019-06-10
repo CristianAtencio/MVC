@@ -29,7 +29,10 @@
                             $item = $row;
                     ?>
                     <tr id="<?php echo $item->item; ?>">
-                    <th scope="row"><img src="<?php echo constant('URL'); ?>assets/img/item.svg" width="100%" height="auto" alt="Equipo ingresado"/></th>
+                    <th scope="row"><a href="<?php echo constant('URL'); ?>input/item/<?php echo $item->id; ?>">
+                    <img src="<?php echo constant('URL'); ?>assets/img/item.svg" width="100%" height="auto" alt="Equipo ingresado"/>
+                    </a></th>
+                    
                     <td><?php echo $item->item; ?></td>
                     <td><?php echo $item->cause; ?></td>
                     <td><?php echo $item->argument; ?></td>
