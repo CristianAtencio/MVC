@@ -47,7 +47,13 @@ class Input extends Controller{
 
         $item = $this->model->getItem($idItem);
         $this->view->item = $item;
-        $this->view->render('input/item');
+
+        if (strcmp("",$item->model) == 0) {
+            
+            $this->view->render('input/item');
+        }else{
+            $this->view->render('input/revision');
+        }
 
     }
 
@@ -55,12 +61,30 @@ class Input extends Controller{
         $idItem = $param[0];
         $user = $_SESSION['name'];
 
+        $modelo = $_POST['modelo'];
+        $potencia = $_POST['potencia'];
+        $voltaje = $_POST['voltaje'];
+        $serial1 = $_POST['serial1'];
+        $serial2 = $_POST['serial2'];
+        $causa2 = $_POST['causa2'];
+        $piezas = $_POST['piezas'];
+        $observacion2 = $_POST['observacion2'];
+
         if ($this->model->updateRevision([
             'idItem' => $idItem,
+            'modelo' => $modelo, 
+            'potencia' => $potencia, 
+            'voltaje' => $voltaje,
+            'serial1' => $serial1,
+            'serial2' => $serial2,
+            'causa2' => $causa2,
+            'piezas' => $piezas,
+            'observacion2' => $observacion2,
             'userRevision' => $user])) {
 
             header('Location: ' . constant('URL') . 'home');  
         }
     }
+
 }
 ?>

@@ -101,6 +101,14 @@ class InputModel extends Model{
                 $item->cause        = $row['Cause'];
                 $item->argument     = $row['Argument'];
                 $item->observation  = $row['Observation'];
+                $item->model        = $row['model'];
+                $item->voltage      = $row['voltage'];
+                $item->power        = $row['power'];
+                $item->seria1       = $row['serial1'];
+                $item->serial2      = $row['serial2'];
+                $item->cause2       = $row['cause2'];
+                $item->observation2 = $row['observation2'];
+                $item->parts        = $row['parts'];
             }
 
             return $item;
@@ -113,11 +121,19 @@ class InputModel extends Model{
 
     public function updateRevision($item){
 
-        $query = $this->db->connect()->prepare('UPDATE ITEM SET USERREVISION = :userRevision, PROCESS = :process, DATEUPDATE = :dateUpdate WHERE  ID = :idItem');
+        $query = $this->db->connect()->prepare('UPDATE ITEM SET USERREVISION = :userRevision, MODEL = :model, VOLTAGE = :voltage, POWER = :power, SERIAL1 = :serial1, SERIAL2 = :serial2, CAUSE2 = :cause2, PARTS = :parts, OBSERVATION2 = :observation2, PROCESS = :process, DATEUPDATE = :dateUpdate WHERE  ID = :idItem');
 
         try {
             $query->execute([
                 'idItem'       => $item['idItem'],
+                'model'        => $item['modelo'],
+                'voltage'      => $item['voltaje'],
+                'power'        => $item['potencia'],
+                'serial1'      => $item['serial1'],
+                'serial2'      => $item['serial2'],
+                'cause2'       => $item['causa2'],
+                'parts'        => $item['piezas'],
+                'observation2' => $item['observacion2'],
                 'userRevision' => $item['userRevision'],
                 'process' => 2,
                 'dateUpdate' => date("F j, Y, g:i a")
